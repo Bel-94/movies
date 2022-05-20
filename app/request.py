@@ -47,12 +47,12 @@ def process_results(movie_list):
         title = movie_item.get('original_title')
         overview = movie_item.get('overview')
         poster = movie_item.get('poster_path')
-        # vote_average = movie_item.get('vote_average')
-        # vote_count = movie_item.get('vote_count')
+        vote_average = movie_item.get('vote_average')
+        vote_count = movie_item.get('vote_count')
 
 
         if poster:
-            movie_object = Movie(id,title,overview,poster)
+            movie_object = Movie(id,title,overview,poster, vote_average,vote_count)
             # print(movie_object)
             movie_results.append(movie_object)
             # print(movie_results)
@@ -72,9 +72,10 @@ def get_movie(id):
             title = movie_details_response.get('original_title')
             overview = movie_details_response.get('overview')
             poster = movie_details_response.get('poster_path')
-            
+            vote_average = movie_details_response.get('vote_average')
+            vote_count = movie_details_response.get('vote_count')
 
-            movie_object = Movie(id,title,overview,poster,)
+            movie_object = Movie(id,title,overview,poster, vote_average,vote_count)
 
     return movie_object
 
